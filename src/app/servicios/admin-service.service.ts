@@ -15,7 +15,7 @@ import { EntidadVentas } from '../modelos/entidad-ventas';
 })
 export class AdminServiceService {
 
-  url:string="https://realstoreheroku.herokuapp.com";
+  url:string="https://back-realstore.herokuapp.com";
   constructor(private http:HttpClient) { }
 
   RegistrarVenta(entidad:EntidadVentas){
