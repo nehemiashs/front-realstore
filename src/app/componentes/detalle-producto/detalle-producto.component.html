@@ -1,0 +1,229 @@
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">realstore@info.com</a></i>
+      <i class="bi bi-phone d-flex align-items-center ms-4"><span>+51 989 898 978</span></i>
+    </div>
+    <div class="social-links d-none d-md-flex align-items-center">
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="autentication" class="User"><i class="fas fa-users fa-2x"></i></a>
+
+    </div>
+  </div>
+</section>
+<!-- ENCABEZADO -->
+  <hr style="height: 5px; background-color: darkblue; margin: 0;" >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" href="#">
+        <img src="assets/logo.png" width="80%" alt="Real Store"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " style="margin-right: 100px;" id="navbarNavAltMarkup">
+        <div class="nav nav-pills">
+          <a class="nav-link" *ngIf="User" href="autentication"><i class="fa fa-user"></i> Iniciar Sesión</a>
+          <a class="nav-link" href="autentication?#contact"><i class="fas fa-map-marker-alt"></i> Ubicanos</a>
+          <a class="nav-link" href="autentication?#about"><i class="fa fa-building"></i> Nosotros</a>
+          <a class="nav-link"><i class="fa fa-truck"></i> Delivery</a>
+          <a class="nav-link" href="carrito" ><i class="fa fa-cart-plus"></i> Carrito</a>
+          <a class="nav-link"><i class="fa fa-sitemap"></i> Trabaja con Nosotros</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- FIN ENCABEZADO -->
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="card card-solid" >
+    <div class="card-body">
+      <a href="catalogo" class="text-secondary">
+        <i class="fas fa-arrow-left fa-1x">&nbsp;Catalogo</i>
+      </a>
+      <div class="mt-4 product-share float-end">
+        <a href="#" class="text-info">
+          <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="#" class="text-info">
+          <i class="fab fa-twitter fa-2x"></i>
+        </a>
+        <a href="#" class="text-info">
+          <i class="fas fa-envelope fa-2x"></i>
+        </a>
+        <a href="#" class="text-info">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+      </div>
+      <div class="row" *ngFor="let element of Producto; index as i">
+        <div class="col-12 col-sm-7">
+          <h3 class="d-inline-block d-sm-none">{{element.nombre}}</h3>
+          <div class="col-12" style="margin: auto;text-align: center;">
+            <img id="image_" src={{element.image}} class="product-image" alt="Product Image">
+          </div>
+          <div class="col-12 product-image-thumbs">
+            <div class="product-image-thumb" (click)="image(element.image)"><img src={{element.image}} alt="Product Image"></div>
+            <div class="product-image-thumb" (click)="image(element.image)"><img src={{element.image}} alt="Product Image"></div>
+            <div class="product-image-thumb" (click)="image(element.image)"><img src={{element.image}} alt="Product Image"></div>
+            <div class="product-image-thumb" (click)="image(element.image)"><img src={{element.image}} alt="Product Image"></div>
+            <div class="product-image-thumb" (click)="image(element.image)"><img src={{element.image}} alt="Product Image"></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-5">
+          <h3 class="my-3">{{element.nombre}}</h3>
+          <sub>{{element.descripcion}}</sub>
+
+          <hr>
+          <div class=" py-2 px-3 mt-4">
+            <h2 class="mb-0 text-secondary">
+                ${{element.precio}}
+            </h2><br>
+            <h4 class="mt-0">
+                <sup class="text-danger">Oferta: ${{element.precio}}</sup>
+            </h4>
+            <sub style="text-align: center;">Unidades Disponibles: <b>{{element.stock}}+</b></sub>
+          </div>
+
+          <div class="mt-4" >
+              <button (click)="addcarrito(element.codigo,element.image,element.nombre,element.precio,1,element.precio)" class="btn btn-warning form-control text-white" style="margin: 10px; height: 50px;">
+                  <i class="fas fa-cart-plus fa-lg mr-1"></i>
+                  Añadir al carrito
+              </button>
+              <br><br>
+              <div class="col-12" style="margin: auto;">
+                <h6 class="text-center">MÉTODOS DE ENTREGA</h6>
+                <div class="row">
+                  <div class="col col-sm-2" style="top:30px"><i class="fas fa-truck fa-2x text-secondary" style="cursor: pointer;"></i></div>
+                  <div class="col col-sm-10">
+                    <sub class="fz-15 fw-bold text-gray">Envío express</sub><br>
+                    <sub class="fz-13 text-gray txt-info-disponible">Disponible para compras entre las 9am y las 1pm de lunes a sábado</sub><br>
+                    <sub class="float-end text-gray"><b>No disponible</b></sub>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col col-sm-2" style="top:30px"><i class="fas fa-store fa-2x text-info" style="cursor: pointer;"></i></div>
+                  <div class="col col-sm-10">
+                    <sub class="fz-15 fw-bold ">Retiro en tienda</sub><br>
+                    <sub class="fz-13 txt-info-disponible">Disponible para compras en cualquier momento del día</sub><br>
+                    <sub class="float-end"><b>Disponible</b></sub>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row mt-4 col-sm-8">
+        <nav class="w-100">
+            <div class="nav nav-tabs" id="product-tab" role="tablist">
+                <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="detalle#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
+                <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="detalle#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Stock</a>
+                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="detalle#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
+            </div>
+        </nav>
+        <div class="tab-content p-3" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> </div>
+            <div class="tab-pane fade" id="product-comments"  role="tabpanel" aria-labelledby="product-comments-tab" ><h4 id="stock_"></h4> </div>
+            <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> </div>
+        </div>
+    </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+
+</section><br>
+<!-- /.content -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+  <div class="footer-newsletter">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h4>Únete a nuestro boletín de noticias</h4>
+          <p>Suscríbete y recibe todas nuestras ofertas exclusivas y novedades</p>
+          <form action="" method="post">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required style="box-shadow: none; text-align: center;">
+            <input type="submit" class="suscribe" value="Suscribirse">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>RealStore<span>.</span></h3>
+          <p>
+            A108 Adam Street <br>
+            Lima, LC 535022<br>
+            Perú <br><br>
+            <strong>Teléfono:</strong> +51 989 898 978<br>
+            <strong>Email:</strong> realstore@info.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Enlaces Útiles</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Nuestras Redes Sociales</h4>
+          <p>Sígenos y recibe las noticias sobre nuestras novedades y ofertas exclusivas </p>
+          <div class="social-links mt-3">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-skype"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <div class="copyright">
+      &copy; Copyright <strong><span>RealStore</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+      Designed by <a href="#autentication?#contact/">DarkCode</a>
+    </div>
+  </div>
+</footer><!-- End Footer -->

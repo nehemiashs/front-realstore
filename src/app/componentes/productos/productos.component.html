@@ -1,0 +1,585 @@
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+
+<div class="wrapper ">
+  <div class="sidebar" data-color="azure" data-background-color="azure" data-image="../assets/img/sidebar-1.jpg">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+  <div class="logo"><a href="administracion" class="simple-text logo-normal">
+    Real Store
+  </a></div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item " *ngIf="Administrador || User">
+        <a class="nav-link" href="administracion">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="User || Administrador">
+        <a class="nav-link" href="perfil">
+          <i class="material-icons">person</i>
+          <p>Mi Perfil</p>
+        </a>
+      </li>
+      <li class="nav-item active" *ngIf="Administrador">
+        <a class="nav-link" href="productos">
+          <i class="material-icons">content_paste</i>
+          <p>Productos</p>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="User">
+        <a class="nav-link" href="historial">
+          <i class="material-icons">library_books</i>
+          <p>Historial</p>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="Administrador">
+        <a class="nav-link" href="usuarios">
+          <i class="material-icons">bubble_chart</i>
+          <p>Usuarios</p>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="Administrador || User">
+        <a class="nav-link" href="notificacion">
+          <i class="material-icons">notifications</i>
+          <p>Notifications</p>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="User || Administrador">
+        <a class="nav-link" href="ubicanos">
+          <i class="material-icons">location_ons</i>
+          <p>Ubícamos</p>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="Administrador">
+        <a class="nav-link" href="informes">
+          <i class="material-icons">unarchive</i>
+          <p>Informes</p>
+        </a>
+      </li>
+      <li class="nav-item " *ngIf="Administrador || User">
+        <a class="nav-link" href="">
+          <i class="material-icons">store</i>
+          <p>Ir a la tienda</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand" href="javascript:;">Perfil</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end">
+          <form class="navbar-form">
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                <i class="material-icons">search</i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;">
+                <i class="material-icons">dashboard</i>
+                <p class="d-lg-none d-md-block">
+                  Stats
+                </p>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">notifications</i>
+                <span class="notification">5</span>
+                <p class="d-lg-none d-md-block">
+                  Some Actions
+                </p>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                <a class="dropdown-item" href="#">Another Notification</a>
+                <a class="dropdown-item" href="#">Another One</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">person</i>
+                <p class="d-lg-none d-md-block">
+                  Account
+                </p>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Dashboard Productos</h4>
+            <p class="card-category">Agregar o actualizar nuevos productos</p>
+          </div>
+          <div class="row card-body">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a class="btn btn-white" data-bs-toggle="collapse"
+                    href="#collapseProductos" role="button" aria-expanded="false" aria-controls="collapseProductos">
+                    <b>Todos los Productos</b>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a class="btn btn-white" data-bs-toggle="collapse"
+                    href="#collapseGestionProducto" role="button" aria-expanded="false" aria-controls="collapseGestionProducto">
+                    <b>Gestion de Productos</b>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a class="btn btn-white" data-bs-toggle="collapse" (click)="NuevoProducto()"
+                    href="#collapseNuevoProducto" role="button" aria-expanded="false" aria-controls="collapseNuevoProducto">
+                    <b>Nuevos Productos</b>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseProductos">
+              <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                  <div class="card">
+                    <div class="card-header card-header-tabs card-header-primary">
+                      <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                          <span class="nav-tabs-title">Categoria:</span>
+                          <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <select (change)="ProductoCategoria($event)" class="form-control text-white" required>
+                                  <option class="form-control" selected hidden></option>
+                                  <option class="text-secondary" *ngFor="let element of Categorias; index as i" value="{{element.codigoCategoria}}">
+                                    &nbsp; {{element.nombreCategoria}}
+                                  </option>
+                                </select>
+                            </li>
+                            <li class="nav-item" style="margin-left: 30%;">
+                              <a class="nav-link" (click)="ProductoGeneral()" href="javascript:;" data-toggle="tab">
+                                <i class="material-icons">content_paste</i> Listar Todos los productos
+                                <div class="ripple-container"></div>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content">
+                        <div class="tab-pane active">
+                          <div class=" col col-md-6 float-right">
+                          <form class="navbar-form">
+                            <div class="input-group no-border">
+                              <input type="text" name="filterPost" [(ngModel)]="filterPost1" value="" class="form-control" placeholder="Search...">
+                              <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                              </button>
+                            </div>
+                          </form>
+                          </div>
+                          <table id="Productos" class="table table-hover">
+                            <thead class="text-warning">
+                              <th>Codigo</th>
+                              <th>Nombre</th>
+                              <th>precio</th>
+                              <th>Stock</th>
+                              <th>Estado</th>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let element of Productos | filter:filterPost1" (click)="ModalProducto(element.codigo)" style="cursor: pointer;">
+                                <td class="text-center">
+                                  {{element.codigo}}
+                                </td>
+                                <td>{{element.nombre}}</td>
+                                <td class="text-center">{{element.precio}}</td>
+                                <td class='text-center {{element.stock <=9 ? "text-danger" : ""}}{{element.stock >=10 ? "text-warning" : ""}}{{element.stock >=15 ? "text-success" : ""}}'>{{element.stock}}</td>
+                                <td class="text-center">
+                                  <i class='{{element.eliminado == "Si" ? "fa fa-times text-danger" : ""}}{{element.eliminado == "No" ? "fa fa-check text-success" : ""}}'></i>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div  class="collapse" id="collapseGestionProducto" >
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-success">
+                      <h4 class="card-title">Productos Vigentes</h4>
+                      <p class="card-category">Gestione los productos Vigentes</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <div class=" col col-md-6 float-right">
+                        <form class="navbar-form">
+                          <div class="input-group no-border">
+                            <input type="text" name="filterPost" [(ngModel)]="filterPost2" value="" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                              <i class="material-icons">search</i>
+                              <div class="ripple-container"></div>
+                            </button>
+                          </div>
+                        </form>
+                        </div>
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Codigo</th>
+                          <th>Nombre</th>
+                          <th>Stock</th>
+                          <th>Estado</th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let element of ProductoVigente | filter:filterPost2" (click)="ModalProducto(element.codigo)" style="cursor: pointer;" >
+                            <td class="text-center">{{element.codigo}}</td>
+                            <td>{{element.nombre}}</td>
+                            <td class='text-center {{element.stock <=9 ? "text-danger" : ""}}{{element.stock >=10 ? "text-warning" : ""}}{{element.stock >=15 ? "text-success" : ""}}'>{{element.stock}}</td>
+                            <td class="text-center"><i class="fa fa-check text-success"></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-warning">
+                      <h4 class="card-title">Productos Eliminados</h4>
+                      <p class="card-category">Gestione los productos eliminados</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <div class=" col col-md-6 float-right">
+                        <form class="navbar-form">
+                          <div class="input-group no-border">
+                            <input type="text" name="filterPost" [(ngModel)]="filterPost3" value="" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                              <i class="material-icons">search</i>
+                              <div class="ripple-container"></div>
+                            </button>
+                          </div>
+                        </form>
+                        </div>
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Codigo</th>
+                          <th>Nombre</th>
+                          <th>Stock</th>
+                          <th>Estado</th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let element of ProductoElimimado | filter:filterPost3" (click)="ModalProducto(element.codigo)" style="cursor: pointer;" >
+                            <td class="text-center">{{element.codigo}}</td>
+                            <td>{{element.nombre}}</td>
+                            <td class='text-center {{element.stock <=9 ? "text-danger" : ""}}{{element.stock >=10 ? "text-warning" : ""}}{{element.stock >=15 ? "text-success" : ""}}'>{{element.stock}}</td>
+                            <td class="text-center"><i class="fa fa-times text-danger"></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="collapse" id="collapseNuevoProducto">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                      <div class="card">
+                        <div class="card-header card-header-success">
+                          <h4 class="card-title">Nuevo Producto</h4>
+                          <p class="card-category">Ingrese todos los campos requeridos</p>
+                        </div>
+                        <div class="card-body">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">CODIGO (disabled)</label>
+                                  <input type="text" class="form-control text-info text-center" name="codigo" [(ngModel)]="Prod.codigo" disabled >
+                                </div>
+                              </div>
+                              <div class="col-md-8">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Nombre</label>
+                                  <input type="text" class="form-control text-secondary " name="nombre" [(ngModel)]="Prod.nombre" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label>Descripcion</label>
+                                    <div class="form-group bmd-form-group">
+                                      <textarea class="form-control text-secondary" placeholder="Ingrese la descripcion del producto" rows="7" name="descripcion" [(ngModel)]="Prod.descripcion" required ></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Stock</label>
+                                  <input type="text" maxlength="3" class="form-control text-secondary " name="stock" [(ngModel)]="Prod.stock" required>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Precio</label>
+                                  <input type="text" maxlength="5" class="form-control text-secondary " name="precio" [(ngModel)]="Prod.precio"  required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Categoria</label>
+                                  <select class="form-control " (change)="cate($event)" required>
+                                    <option class="form-control"  value="{{Prod.cod_categoria}}" selected hidden>{{categoria}}</option>
+                                    <option *ngFor="let element of Categorias; index as i" value="{{element.codigoCategoria}}">
+                                      &nbsp; {{element.nombreCategoria}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group" >
+                                  <label class="bmd-label-floating">Proveedor</label>
+                                  <select class="form-control" (change)="provee($event)" required>
+                                    <option class="form-control" value="{{Prod.id_proveedor}}" selected hidden>{{proveedor}}</option>
+                                    <option *ngFor="let element of Proveedores; index as i" value="{{element.idProveedor}}">
+                                      &nbsp; {{element.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-check">
+                                  <label class="bmd-label-floating">Estado</label><br><br>
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" name="vigente" [(ngModel)]="checkbox" type="checkbox" value="" >
+                                    <span class="form-check-sign">
+                                      <span class="check"></span>
+                                    </span>Vigente
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <input type="submit" (click)="RegistrarProducto()" class="btn btn-white pull-right" value="Registrar Producto">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 ml-auto mr-auto">
+                      <div class="card" style="margin-top: 200px;">
+                        <div class="card-body text-center" >
+                          <img class="card-img-top" id="image-producto" src="" />
+                          <input type="text" id="data-image" class="form-control" hidden>
+                          <hr>
+                          <div class="file-select file" >
+                            <input type="file" (click)="image()" class="btn btn-info btn-round" id="file" aria-label="Archivo">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ------------------ -->
+<!--- MODAL PRODUCTO ---->
+<!-- ------------------ -->
+
+<!-- Modal -->
+<div class="modal fade" id="ModalProducto" style="overflow-y: scroll;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Gestionar Producto</h5>
+        <button type="button" class="btn btn-white btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row" >
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">Actualizar Producto</h4>
+                <p class="card-category">Actualize todos los campos necesarios</p>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">CODIGO (disabled)</label>
+                        <input type="text" class="form-control text-info text-center" name="codigo" [(ngModel)]="Prod.codigo" disabled >
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Nombre</label>
+                        <input type="text" class="form-control text-secondary " name="nombre" [(ngModel)]="Prod.nombre" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Descripcion</label>
+                          <div class="form-group bmd-form-group">
+                            <textarea class="form-control text-secondary" placeholder="Ingrese la descripcion del producto" rows="7" name="descripcion" [(ngModel)]="Prod.descripcion" required ></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Stock</label>
+                        <input type="text" maxlength="3" class="form-control text-secondary " name="stock" [(ngModel)]="Prod.stock" required>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Precio</label>
+                        <input type="text" maxlength="5" class="form-control text-secondary " name="precio" [(ngModel)]="Prod.precio"  required>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Categoria</label>
+                        <select class="form-control " (change)="cate($event)" required>
+                          <option class="form-control"  value="{{Prod.cod_categoria}}" selected hidden>{{categoria}}</option>
+                          <option *ngFor="let element of Categorias; index as i" value="{{element.codigoCategoria}}">
+                            &nbsp; {{element.nombreCategoria}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group" >
+                        <label class="bmd-label-floating">Proveedor</label>
+                        <select class="form-control" (change)="provee($event)" required>
+                          <option class="form-control" value="{{Prod.id_proveedor}}" selected hidden>{{proveedor}}</option>
+                          <option *ngFor="let element of Proveedores; index as i" value="{{element.idProveedor}}">
+                            &nbsp; {{element.nombre}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check">
+                        <label class="bmd-label-floating">Estado</label><br><br>
+                        <label class="form-check-label">
+                          <input class="form-check-input" name="vigente" [(ngModel)]="checkbox" type="checkbox" value="" >
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>Vigente
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ml-auto mr-auto">
+            <div class="card" style="margin-top: 100px;">
+              <div class="card-body text-center" >
+                <img class="card-img-top" id="image-producto-actualizar" src="{{Prod.image}}" />
+                <input type="text" id="data-image-actualizar" class="form-control" name="image" value="{{Prod.image}}" hidden>
+                <hr>
+                <div class="file-select file" >
+                  <input type="file" (click)="ActualizarImagen()" class="btn btn-info btn-round" id="file-actualizar" aria-label="Archivo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="ActualizarProducto(Prod.codigo)"  class="btn btn-warning">Actualizar Producto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ------------- -->
+<!---- FIN MODAL --->
+<!-- -------------- -->
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="home">
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                NOSOTROS
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                UBICANOS
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                CONTACTANOS
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright float-right">
+          &copy; Copyright <strong><span>RealStore</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+

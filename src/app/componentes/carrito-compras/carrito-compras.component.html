@@ -1,0 +1,400 @@
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">realstore@info.com</a></i>
+      <i class="bi bi-phone d-flex align-items-center ms-4"><span>+51 989 898 978</span></i>
+    </div>
+    <div class="social-links d-none d-md-flex align-items-center">
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="autentication" class="User"><i class="fas fa-users fa-2x"></i></a>
+
+    </div>
+  </div>
+</section>
+<!-- ENCABEZADO -->
+  <hr style="height: 5px; background-color: darkblue; margin: 0;" >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" href="#">
+        <img src="assets/logo.png" width="80%" alt="Real Store"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " style="margin-right: 100px;" id="navbarNavAltMarkup">
+        <div class="nav nav-pills">
+          <a class="nav-link" *ngIf="User" (click)="login()"><i class="fa fa-user"></i> Iniciar Sesión</a>
+          <a class="nav-link" href="autentication?#contact"><i class="fas fa-map-marker-alt"></i> Ubicanos</a>
+          <a class="nav-link" href="autentication?#about"><i class="fa fa-building"></i> Nosotros</a>
+          <a class="nav-link"><i class="fa fa-truck"></i> Delivery</a>
+          <a class="nav-link"><i class="fa fa-sitemap"></i> Trabaja con Nosotros</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- FIN ENCABEZADO -->
+<!-- INICIO CAROUSEL -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.oechsle.pe/arquivos/Cintillo_express-desktop-b.png?v=637560343962200000" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- FIN CAROUSEL -->
+
+    <div class="bs-stepper">
+      <div class="bs-stepper-header" role="tablist">
+        <!-- your steps here -->
+        <div class="step" data-target="#car">
+          <button type="button" class="step-trigger" role="tab" aria-controls="car" id="carrito">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Carrito</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#pag">
+          <button type="button" class="step-trigger" role="tab" aria-controls="pag" id="pago">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Pago</span>
+          </button>
+        </div>
+      </div><br>
+      <div class="bs-stepper-content">
+        <!-- your steps content here -->
+        <div id="car" class="content" role="tabpanel" aria-labelledby="carrito">
+          <!-- Cart Table -->
+          <div class="wrap">
+            <div class="row carrito" style="padding: 2rem; text-align: center;">
+                <div class="table ">
+                  <span id="totalproductos" style="font-size: 25px; font-family: Verdana, Geneva, Tahoma, sans-serif;"></span><br><br>
+                  <table class="table" style="text-align: center;">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th class="mob-hide">Nombre Producto</th>
+                        <th class="mob-hide">Unidad</th>
+                        <th class="table-qty">Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>-</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let element of items; index as i" style="vertical-align: middle;" id="{{element.codprod}}">
+                      <td>
+                        <a class="btn" title="{{ element.stock }}">
+                          <img
+                            src="{{ element.image }}"
+                            style="width: 80px; height: auto"
+                          />
+                        </a>
+                      </td>
+                      <td class="text-center mob-hide">
+                        <sub>
+                          {{ element.nombre }}
+                        </sub>
+                      </td>
+                      <td class="mob-hide">
+                        <sub><b class="order-product-price">
+                          $ {{ element.precio }}
+                        </b></sub>
+                      </td>
+                      <td>
+                        <input
+                          class="form-control"
+                          value="{{ element.cantidad }}"
+                          maxlength="2"
+                          (keyup)="onKeyUp($event, element.codprod)"
+                          style="width: 50%; margin: auto;text-align: center; box-shadow: none; font-size: 12px;"
+                        />
+                      </td>
+                      <td>
+                        <sub><b class="order-product-subtotal">
+                          $ {{ element.subtotal }}
+                        </b></sub>
+                      </td>
+                      <td clas="text-right">
+                        <a
+                          class="btn btn-warning"
+                          (click)="remove(element.codprod)"
+                          title="Remove Product"
+                          ><i class="fas fa-trash fa-1x"></i
+                        ></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+              <br>
+          </div>
+          <aside>
+            <h5 style="text-align: center;">Resumen de tu orden</h5><hr>
+            <form>
+              <div class="table">
+                <label>Sub-total Productos:&nbsp;&nbsp;&nbsp;</label><label id="subtotal"></label> <br>
+                <br>
+                <sub>El costo del despacho no esta incluido en el precio</sub><br>
+              </div><hr><h5 id="total" style="text-align: center;">$ 0.000.000</h5><br>
+              <input id="total-pagar" hidden/>
+              <button class="btn btn-success form-control disabled" id="Pagar-Ahora" style="height: 50px;" (click)="next()"><i class="fas fa-shield-alt"></i> PAGAR AHORA</button><br><br>
+              <a href="catalogo"><i class="fas fa-undo-alt fa-3x" style="margin: auto;text-align: center; width: 100%; cursor: pointer;"></i></a><br>
+            </form>
+          </aside>
+        </div>
+        </div>
+        <div id="pag" class="content" role="tabpanel" aria-labelledby="pago">
+          <div class="wrap">
+            <div class="row pago-payapal" style="padding: 2rem; text-align: center;">
+              <ngx-paypal [config]="payPalConfig"></ngx-paypal><br><!-- diseño payapal -->
+            </div>
+          <aside>
+            <h5 style="text-align: center;">Resumen de tu orden</h5><hr>
+            <form>
+              <div class="table">
+                <label>Sub-total Productos:&nbsp;&nbsp;&nbsp;</label><label id="subtotal2"></label> <br>
+                <label>IGV (18%):&nbsp;&nbsp;&nbsp;</label><label id="igv"></label> <br>
+                <br>
+                <sub>El costo del despacho no esta incluido en el precio</sub><br>
+              </div><hr><h5 id="total2" style="text-align: center;">$ 0.000.000</h5><br>
+              <a class="btn btn-info form-control" [hidden]="MostrarFactura"  id="pdf" style="height: 50px; margin-bottom: 1rem;"><i class="fas fa-shield-alt"></i> VER FACTURA</a>
+              <button class="btn btn-success form-control" style="height: 50px;" ><i class="fas fa-shield-alt"></i> PAGA SEGURO</button><br><br>
+              <i class="fas fa-undo-alt fa-3x" (click)="previous()" style="margin: auto;text-align: center; width: 100%; cursor: pointer;"></i><br>
+            </form>
+          </aside>
+          </div>
+        </div>
+        <div id="123" class="content" role="tabpanel" aria-labelledby="pagos">
+          <!-- -------------------- ----------------->
+          <!-------- FACTURA MODO DISMISS------------->
+          <!-- ----------------------- -------------->
+          <div id="factura" class="invoice p-3 mb-0">
+            <!-- title row -->
+            <div class="row">
+              <div class="col-12">
+                <h4>
+                  <i class="fas fa-globe"></i> Real Store, Inc.
+                  <small id="fecha" class="float-end">Date: 22/06/2021</small>
+                </h4>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- info row -->
+            <div class="row invoice-info" >
+              <div class="col-sm-4 invoice-col">
+                De
+                <address>
+                  <strong>Real Store, Inc.</strong><br>
+                  795 Folsom Ave, Suite 600<br>
+                  Lima, PE 94107<br>
+                  Phone: (+51) 123-5432<br>
+                  Email: info@realstore.com
+                </address>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-4 invoice-col" >
+                Para
+                <address>
+                  <strong id="nombre-usuario"></strong><br>
+                  795 Folsom Ave, Suite 600<br>
+                  Lima, PE 94107<br>
+                  Phone: (+51) <a id="telefono-usuario"></a> <br>
+                  Email: <a id="email-usuario"></a>
+                </address>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-4 invoice-col">
+                <b>Factura #000012</b><br>
+                <br>
+                <b>ID de pedido:</b>&nbsp;<a id="idpedido">4F3S8J</a><br>
+                <b>Pago efectuado:</b>&nbsp;<a id="fechapago">28/1/2021</a><br>
+                <b>Cuenta:</b> Paypal
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- Table row -->
+            <div class="row">
+              <div class="col-12 table-responsive">
+                <table class="table table-striped table-bordered" style="text-align: center;">
+                  <thead>
+                  <tr>
+                    <th>N°</th>
+                    <th>Producto</th>
+                    <th>Serial #</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unidad</th>
+                    <th>Subtotal</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let variable of items; index as i;">
+                      <td>#{{i+1}}</td>
+                      <td>{{variable.nombre}}</td>
+                      <td>P-00{{variable.codprod}}</td>
+                      <td>{{variable.cantidad}}</td>
+                      <td>${{variable.precio}}</td>
+                      <td>${{variable.subtotal}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row" >
+              <!-- accepted payments column -->
+              <div class="col-6" style="margin: auto;text-align: center;">
+                <p class="lead">Payment Methods:</p>
+                <a class="btn btn-white"><i class="fab fa-cc-visa fa-4x"></i></a>
+                <a class="btn btn-white"><i class="fab fa-cc-mastercard fa-4x"></i></a>
+                <a class="btn btn-white"><i class="fab fa-cc-amex fa-4x"></i></a>
+                <a class="btn btn-white"><i class="fab fa-cc-paypal fa-4x"></i></a>
+                <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+                  Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
+                  plugg
+                  dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                </p>
+              </div>
+              <!-- /.col -->
+              <div class="col-6">
+                <p id="importe-adeudado" class="lead">Amount Due 22/06/2021</p>
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody><tr>
+                      <th style="width:50%">Subtotal:</th>
+                      <td id="subtotal-factura">$0.00</td>
+                    </tr>
+                    <tr>
+                      <th>IGV (18%)</th>
+                      <td id="igv-factura">$0.00</td>
+                    </tr>
+                    <tr>
+                      <th>Delivery:</th>
+                      <td>$0.00</td>
+                    </tr>
+                    <tr>
+                      <th>Total:</th>
+                      <td id="total-factura">$0.00</td>
+                    </tr>
+                  </tbody></table>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- ----fin factura---- -->
+        </div>
+      </div>
+    </div><br><br>
+
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+      <div class="footer-newsletter">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <h4>Únete a nuestro boletín de noticias</h4>
+              <p>Suscríbete y recibe todas nuestras ofertas exclusivas y novedades</p>
+              <form action="" method="post">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required style="box-shadow: none; text-align: center;">
+                <input type="submit" class="suscribe" value="Suscribirse">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>RealStore<span>.</span></h3>
+              <p>
+                A108 Adam Street <br>
+                Lima, LC 535022<br>
+                Perú <br><br>
+                <strong>Teléfono:</strong> +51 989 898 978<br>
+                <strong>Email:</strong> realstore@info.com<br>
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Enlaces Útiles</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Nuestros Servicios</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Nuestras Redes Sociales</h4>
+              <p>Sígenos y recibe las noticias sobre nuestras novedades y ofertas exclusivas </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="fa fa-skype"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container py-4">
+        <div class="copyright">
+          &copy; Copyright <strong><span>RealStore</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+          Designed by <a href="#autentication?#contact/">DarkCode</a>
+        </div>
+      </div>
+    </footer><!-- End Footer -->

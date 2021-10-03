@@ -1,0 +1,196 @@
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+      <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+    </div>
+    <div class="social-links d-none d-md-flex align-items-center">
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="autentication" class="User"><i class="fas fa-users fa-2x"></i></a>
+
+    </div>
+  </div>
+</section>
+<!-- ENCABEZADO -->
+  <hr style="height: 5px; background-color: darkblue; margin: 0;" >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" href="#">
+        <img src="assets/logo.png" width="80%" alt="Real Store"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " style="margin-right: 100px;" id="navbarNavAltMarkup">
+        <div class="nav nav-pills">
+          <a class="nav-link" *ngIf="User" href="autentication"><i class="fa fa-user"></i> Iniciar Sesión</a>
+          <a class="nav-link" href="autentication?#contact"><i class="fas fa-map-marker-alt"></i> Ubicanos</a>
+          <a class="nav-link" href="autentication?#about"><i class="fa fa-building"></i> Nosotros</a>
+          <a class="nav-link"><i class="fa fa-truck"></i> Delivery</a>
+          <a class="nav-link" href="carrito" ><i class="fa fa-cart-plus"></i> Carrito</a>
+          <a class="nav-link"><i class="fa fa-sitemap"></i> Trabaja con Nosotros</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- FIN ENCABEZADO -->
+
+<!-- INICIO CAROUSEL -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://images.contentstack.io/v3/assets/bltf4ed0b9a176c126e/bltdc160637f5ebd75a/6036c52ef54af27503f2d75e/230221-topper-full-aeropostale.jpg?v2" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- FIN CAROUSEL -->
+
+<div class="wrap">
+  <!-- CARRITO DE COMPRAS -->
+  <aside>
+    <h3 id="total-productos" style="text-align: center;">Mis Productos</h3><hr>
+    <form>
+      <div class="table">
+        <table class="table">
+          <tbody id="items">
+            <tr  *ngFor="let info of items; index as i;" id="{{info.codprod}}">
+              <td>
+                <img src="{{info.image}}" width="80px">
+              </td>
+              <td style="text-align: center; vertical-align: middle;"><sup>{{info.nombre}}</sup></td>
+              <td style="text-align: center; vertical-align: middle;"><sup>${{info.precio}}</sup></td>
+              <td style="text-align: center; vertical-align: middle;">
+                <i class="delete fas fa-trash fa-1x" style="cursor: pointer;" (click)="remove(info.codprod)" ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div><hr><h5 id="subtotal" style="text-align: center;">$ 0.000.000</h5>
+      <input type="button" (click)="carrito()" class="form-control btn-warning text-white" value="IR AL CARRITO">
+    </form>
+  </aside>
+  <!-- FIN CARRITO -->
+<div class="row" style="margin-top: 2rem;">
+  <!-- CARD DE PRODUCTOS -->
+  <div class="card producto" style="width: 13rem; margin: auto; margin-top: 1rem;" *ngFor="let variable of Producto; index as i">
+    <img src={{variable.image}} class="card-img-top" (click)="detalle(variable.codigo)" style="margin-top: 10px; max-height: 180px;" alt="{{variable.nombre}}">
+    <div class="card-body" style=" height: 270px !important">
+      <h6><b>{{variable.nombre}}</b></h6>
+      <p class="text-secondary">Real Store</p>
+      <sub class="text-center">Stock {{variable.stock}}+</sub><br>
+      <sub class="text-center text-danger"><b>${{variable.precio}}</b></sub><br>
+      <sub><i class="fa fa-check text-success"></i>&nbsp; Retiro en tienda</sub><br><br>
+      <button class="btn text-center form-control text-white btn-carrito" (click)="addcarrito(variable.codigo,variable.image,variable.nombre,variable.precio,1,variable.precio)"><i class="fas fa-cart-plus"></i>&nbsp;AGREGAR</button>
+    </div>
+  </div>
+  <!-- FIN DEL CARD -->
+</div>
+</div><br>
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+  <div class="footer-newsletter">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h4>Únete a nuestro boletín de noticias</h4>
+          <p>Suscríbete y recibe todas nuestras ofertas exclusivas y novedades</p>
+          <form action="" method="post">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required style="box-shadow: none; text-align: center;">
+            <input type="submit" class="suscribe" value="Suscribirse">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>RealStore<span>.</span></h3>
+          <p>
+            A108 Adam Street <br>
+            Lima, LC 535022<br>
+            Perú <br><br>
+            <strong>Teléfono:</strong> +51 989 898 978<br>
+            <strong>Email:</strong> realstore@info.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Enlaces Útiles</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Nuestras Redes Sociales</h4>
+          <p>Sígenos y recibe las noticias sobre nuestras novedades y ofertas exclusivas </p>
+          <div class="social-links mt-3">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-skype"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <div class="copyright">
+      &copy; Copyright <strong><span>RealStore</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+      Designed by <a href="#autentication?#contact/">DarkCode</a>
+    </div>
+  </div>
+</footer><!-- End Footer -->

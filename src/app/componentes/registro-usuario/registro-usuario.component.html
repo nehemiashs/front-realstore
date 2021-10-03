@@ -1,0 +1,34 @@
+<div class="main" style='background-image: url("assets/about.jpg"); background-repeat: no-repeat;background-size: cover;'>
+
+    <div class="container">
+        <form #form="ngForm" (ngSubmit)="FormRegistro(form.value)" class="appointment-form" >
+            <h2>REGISTRE SUS DATOS </h2>
+            <div class="form-group-1">
+                <input type="text" name="dni" [(ngModel)]="Usuario.dni" id="dni" placeholder="Ingrese su dni" maxlength="8" required />
+                <input type="text" name="name" [(ngModel)]="Usuario.nombre" placeholder="Tu nombre" required />
+                <input type="text" name="apellido" [(ngModel)]="Usuario.apellido" placeholder="Tu apellido" required />
+                <input type="email" name="email" [(ngModel)]="Usuario.email" placeholder="Tu email" required />
+                <input type="password" name="password1" id="password1" placeholder="Tu contraseña" required />
+                <input type="password" name="password2" id="password2" [(ngModel)]="Usuario.password" placeholder="Repite tu contraseña" required />
+                <div class="select-list">
+                    <select name="genero" [(ngModel)]="Usuario.genero" id="genero">
+                        <option slected value="" hidden>Genero</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                </div>
+                <input type="date" [(ngModel)]="Usuario.fech_nacimiento" name="date"  required />
+                <input type="number" [(ngModel)]="Usuario.telefono" name="phone_number" maxlength="9" placeholder="Número Telefonico" required />
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="agree-term" id="agree-term" class="form-control" />
+                <label for="agree-term" class="label-agree-term"><span><span></span></span>Acepto los  <a href="javascript:;" class="term-service">Terminos y condiciones</a></label>
+            </div>
+            <div class="form-submit form-inline">
+              <button type="submit" name="registro" id="registro" class="form-control btn btn-primary">Registrarme</button>
+              <a href="autentication" name="cancelar" id="cancelar" class="form-control btn btn-warning" style="margin-top: 10px;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,255 @@
+  <!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">realstore@info.com</a></i>
+      <i class="bi bi-phone d-flex align-items-center ms-4"><span>+51 989 898 978</span></i>
+    </div>
+    <div class="social-links d-none d-md-flex align-items-center">
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="autentication" class="User"><i class="fas fa-users fa-2x"></i></a>
+
+    </div>
+  </div>
+</section>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="row" data-aos="zoom-out" data-aos-delay="100" style="margin: auto;">
+      <div class="col text-center" style="margin-top: 5%; z-index: 100;">
+        <h1>Bienvenido a <span>RealStore</span></h1>
+        <h2>Trabajamos para llegar a mas personas</h2>
+        <div class="text-center">
+          <a href="" class="btn btn-primary" style="box-shadow: none;"><i class="fas fa-home"></i>&nbsp;IR A HOME</a>
+          <a href="administracion" *ngIf="User" class="btn" style="box-shadow: none;"><i class="fas fa-play-circle"></i>&nbsp;EMPEZAR</a>
+          <a href="registro" class="btn" *ngIf="!User" style="box-shadow: none;"><i class="fas fa-user"></i>&nbsp;REGISTRARSE</a>
+        </div>
+      </div>
+      <div class="col" *ngIf="!User">
+        <div class="container3">
+          <div class="left">
+            <div class="login">Login</div>
+            <div class="eula">Inicie sesión para obtener privilegios acerca de la pagina</div>
+          </div>
+          <div class="right">
+            <div class="form">
+              <label for="email">Email</label>
+              <input type="email" class="input" name="email" [(ngModel)]="Usuario.email" id="email" required>
+              <label for="password">Password</label>
+              <input type="password" class="input" name="password" [(ngModel)]="Usuario.password" id="password" required>
+              <input type="submit" class="form-control" id="submit" (click)="login()" value="Iniciar Sesion">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2 class="nav-link"><b><u>Acerca de</u></b></h2>
+          <h3>Más información <span>sobre nosotros</span></h3>
+          <p>Somos <b>REAL STORE</b> abrimos nuestra primera tienda, en Abril del 2019. Cuyo objetivo es no sólo proporcionar productos y servicios para satisfacer las necesidades de nuestros clientes, sino hacerles sentir como en casa en un ambiente de confianza y familiaridad mediante un excelente servicio y precios asequibles, pues su satisfacción es la nuestra. 
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/nosotros.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li>
+                <i class="fas fa-circle"></i>
+                <div>
+                  <h5>MISIÓN</h5>
+                  <p>Trabajamos para cumplir los sueños de la gente. Brindando a nuestros clientes el acceso a lo mejor de los 5 continentes y logrando que su experiencia de compra sea fascinante.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-circle"></i>
+                <div>
+                  <h5>VISIÓN</h5>
+                  <p>Ser el retail financiero líder en los países donde operamos. A partir de la  preferencia  de  nuestros  clientes,  el  desarrollo  de  nuestros colaboradores, el retorno sobre el capital invertido y el compromiso responsable con la sociedad.</p>
+                </div>
+              </li>
+            </ul>
+            <p>
+              El objetivo principal de Real Store S.A. se orienta a la calidad en la atención al  cliente  y  en  satisfacer  sus  necesidades,  como  negocio  de  retail financiero
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2 class="nav-link"><b><u>Contacto</u></b></h2>
+      <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-6">
+        <div class="info-box mb-4">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3>Ubíquenos</h3>
+          <p>Av. Petit Thouars 315, Lima, LC 535022</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="info-box  mb-4">
+          <i class="fas fa-envelope-open"></i>
+          <h3>Nuestro Email</h3>
+          <p>realstore@info.com</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="info-box  mb-4">
+          <i class="fas fa-phone"></i>
+          <h3>Contáctenos</h3>
+          <p>+51 987 986 673</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="col-lg-6 ">
+        <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.6569791746174!2d-77.03793778573245!3d-12.06710594556343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8eb0ef54037%3A0x6dc14dcc4062cff1!2sIdat%20-%20Lima%20Centro!5e0!3m2!1ses-419!2spe!4v1623885759264!5m2!1ses-419!2spe" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-lg-6">
+        <form #form="ngForm" (ngSubmit)="FormContacto(form.value)" class="php-email-form">
+          <div class="row">
+            <div class="col form-group">
+              <input type="text" name="name" [(ngModel)]="Contacto.nombre" class="form-control" id="name" placeholder="Tu nombre"  required>
+            </div>
+            <div class="col form-group">
+              <input type="email" [(ngModel)]="Contacto.email" class="form-control" name="emailcontact" id="emailcontact" placeholder="Tu Email"  required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="subject" [(ngModel)]="Contacto.asunto" id="subject" placeholder="Asunto" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="message" [(ngModel)]="Contacto.mensaje" rows="5" placeholder="Mensaje" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button name="submit" type="submit">Send Message</button></div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
+<br><br>
+<a href="autentication#hero" class="back-to-top d-flex align-items-center justify-content-center btn btn-primary"><i class="fas fa-angle-double-up fa-2x"></i></a>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Únete a nuestro boletín de noticias</h4>
+            <p>Suscríbete y recibe todas nuestras ofertas exclusivas y novedades</p>
+            <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+              <input type="email" class="form-control" name="emailsuscriptor" [(ngModel)]="Suscriptor.email" id="emailsuscriptor" placeholder="Your Email" required style="box-shadow: none; text-align: center;">
+              <input type="submit" class="suscribe" value="Suscribirse">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>RealStore<span>.</span></h3>
+            <p>
+              A108 Adam Street <br>
+              Lima, LC 535022<br>
+              Perú <br><br>
+              <strong>Teléfono:</strong> +51 989 898 978<br>
+              <strong>Email:</strong> realstore@info.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Enlaces Útiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Nuestros Servicios</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Nuestras Redes Sociales</h4>
+            <p>Sígenos y recibe las noticias sobre nuestras novedades y ofertas exclusivas </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-skype"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>RealStore</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+        Designed by <a href="#autentication?#contact/">DarkCode</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
